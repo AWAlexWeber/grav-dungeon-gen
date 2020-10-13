@@ -2,7 +2,7 @@
 Python tool that generates a 2-dimensional dungeon based off of a set of pre-defined room dimensions and room counts.
 
 ## Problem
-The current most popular ways for generating dungeons usually take one of the following approaches
+The current most popular ways for generating dungeons usually take one of the following approaches:
 * Generate random room sizes, connect randomly generated rooms together with hallways.
 * Fill in a predefined area with pre-set rooms, randomly connect them together again with hallways.
 
