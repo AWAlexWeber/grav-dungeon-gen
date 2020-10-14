@@ -134,7 +134,7 @@ class DungeonGenerator:
         None: Modifying the roomDict directly
     """
     def shiftRoomsRemoveOverlap(self, roomDict: dict):
-        roomMod = max(len(roomDict), 100)
+        roomMod = max(len(roomDict), 50)
         totalRenderCount = 0
         while True:
             self.render(roomDict,outputFile="./output/output_explode_"+str(totalRenderCount)+".png")
@@ -290,24 +290,13 @@ class DungeonGenerator:
         outputFile (str): Filepath (relative or absolute) of the output saved file. Defaults to output.png in the output directory.
     """
     def render(self, rooms: List[Room], outputFile="./output/output.png"):
-        im = Image.new("RGB", (2000, 2000), "white")
+        im = Image.new("RGB", (300, 300), "white")
         draw = ImageDraw.Draw(im)
         for roomId in rooms:
             room = rooms[roomId]
             roomDim = room.dimension
-            draw.rectangle((roomDim.x + 1000, roomDim.y + 1000, roomDim.x+roomDim.width - 1 + 1000, roomDim.y+roomDim.height - 1 + 1000), fill=(random.randint(0,255),random.randint(0,255),random.randint(0,255)))
+            draw.rectangle((roomDim.x + 150, roomDim.y + 150, roomDim.x+roomDim.width - 1 + 150, roomDim.y+roomDim.height - 1 + 150), fill=room.fill)
             roomCenterX, roomCenterY = (roomDim.x + (roomDim.width // 2)), (roomDim.y + (roomDim.height // 2))
             #draw.text([roomCenterX, roomCenterY], str(roomId))
 
-        
         im.save(outputFile)
-
-dg = DungeonGenerator("seed", Dimension2D(150,150,255,255))
-roomList = list()
-for i in [10,25,50]:
-    for j in [10,25,50]:
-        roomList.append(RoomTemplate(i, j))
-roomDict = dg.generateDungeon(roomList, 50)
-dg.render(roomDict)
-for room in roomDict:
-    print(room,roomDict[room].dimension)
