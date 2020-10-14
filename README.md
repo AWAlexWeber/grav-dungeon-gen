@@ -23,13 +23,17 @@ The following animations were generated using a roomset of [5,5],[10,5],[5,10],[
 ### Generating the initial set
 
 First we generate an initial set of rooms randomly placed around (0,0,10,10) which is our center defined range. The larger the range the more spread out the rooms will be on initialization. As we can see its highly condensed.
+
 ![50 Room Initial Dungeon](https://i.imgur.com/TBINBQ1.png)
 
 Next we 'explode' outwards, spreading the rooms out as much as possible.
+
 ![50 Room Explode](https://i.imgur.com/rd9WyEE.gif)
 
 Finally, we 'condense' the rooms towards the center. Note that the center does not have to be a part of (0,0,10,10) and could be an entirely different position.
+
 ![50 Room Explode](https://i.imgur.com/vf5k4uN.gif)
 
 This creates the final output as seen below.
+
 ![50 Room Final](https://i.imgur.com/2GGiI0c.png)
