@@ -97,6 +97,8 @@ class Room:
         self.id = id
         self.dimension = Dimension2D(x,y,w,h)
 
+        self.fill = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
+
 class DungeonGenerator:
     """Main class for generating our dungeon.
 
